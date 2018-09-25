@@ -1,5 +1,6 @@
 # from collections import namedtuple
 from typing import Tuple, List
+import math
 from . import table
 
 class MarchingSquare:

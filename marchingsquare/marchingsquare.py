@@ -1,12 +1,13 @@
-from collections import namedtuple
+# from collections import namedtuple
+from typing import Tuple, List
+from . import table
 
-
-class marchingSquare:
+class MarchingSquare:
     """
         Input : F is a 2D array of scalar values.
         Coord is a 2D array of (x, y) coordinates.
-        σ is an isovalue.
-        Result : A set Υ of isocontour line segments.
+        sigma is an isovalue.
+        Result : A set Y of isocontour line segments.
 
 
 
@@ -18,36 +19,40 @@ class marchingSquare:
 
         TODO   import 'interpo'
 
-     """
-
-    def __ini_marchingSquare__(self, g, table):
-        Grid = namedtuple('Grid', ['x', 'y'], verbose=True)
-        self.g = Grid
-        self.table = {00000: {}, 1000: {'left', 'bottom'}, 0100: {'left', 'top'}, 0010: {'top', 'right'},
-                      0001: {'right', 'bottom'},
-                      1100: {'top', 'bottom'}, 1001: {'left', 'right'}, 1010: {'left', 'top', 'right', 'bottom'},
-                      1111: {},
-                      0111: {'left', 'bottom'}, 1011: {'left', 'top'}, 1101: {'top', 'right'},
-                      1110: {'right', 'bottom'},
-                      0011: {'top'cc, 'bottom'}, 0110:{'left', 'right'}, 0101:{'left', 'top', 'right', 'bottom'}}
-
-
-
-
-
-
-
-
-    def assign(self, sigma):
         """
-        Assign “+” or “−” signs to each vertex
 
+    def __init__ (self, table: table.Table() ):
+        self.grid = [[0 for x in range(r)] for y in range(2)]
+        print(self)
+
+
+    def __str__(self):
+        return self.sigma
+
+    def grid(self, l):
+        d = {}
+        for x, m in enumerate(l):
+            for y, n in enumerate(m):
+                d.update({(x, y): [n, math.nan]})
+        return d
+
+    def sign(self, sigma, grid):
+        for k, v in grid.items():
+                if sigma > v[0]
+                   v[1] = 0
+                else:
+                   v[1] = 1
+
+
+    def assign(self, sigma, grid):
+        """
+        Assign '+' or '-' signs to each vertex
+        :param vertx:
         :param sigma:
         :return:
         """
-        g = self.g
-        for each v in g:
-           if sigma >
+
+        sign(sigma, grid)
 
     def table(self):
         """
@@ -55,3 +60,12 @@ class marchingSquare:
         :return: contains sixteen entries, one for each configuration
         """
         # count clockwise
+        super
+
+    def march(self, sigma: int, g):
+        # Grid = Tuple(List(int, int, int))
+        self.sigma = sigma
+        self.grid = grid(g)
+        grid = self.grid
+        assign(sigma, grid)
+

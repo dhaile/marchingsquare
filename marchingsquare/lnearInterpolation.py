@@ -10,7 +10,13 @@
 #        p = (px, py, pz)
 
 
-def LinearInterpolation (p,q,r,s, sigma):
-    sigma = (sigma - s)/(r - s)
-    (px, py) = p
-    (qx, qy) = q
+class LinearInterpolation:
+
+    def interpolate(self, p, q, sp, sq, sigma):
+        (px, py, pz) = p
+        (qx, qy,) = q
+        alpha = (sigma - sp) / (sq - sp)
+        rx = (1 - alpha) * px + alpha * qx
+        ry = (1 - alpha) * qy + alpha * qy
+        r = (rx, ry)
+        return r

@@ -1,5 +1,5 @@
 from typing import Tuple, List
-
+# format(15, '08b')
 class Table:
     def __init__(self):
         self.table =((0b0000, []), (0b1000, ['left', 'bottom']), (0b0100, ['left', 'top']), (0b0010, ['top', 'right']),
